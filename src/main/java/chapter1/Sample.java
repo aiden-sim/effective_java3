@@ -1,4 +1,4 @@
-package chart1;
+package chapter1;
 
 /**
  * Created by simjunbo on 2018-11-12.
