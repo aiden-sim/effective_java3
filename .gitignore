@@ -35,3 +35,7 @@ Thumbs.db
 
 .idea/
 *.iml
+
+/target/
+/deploy/
+/.classpath
