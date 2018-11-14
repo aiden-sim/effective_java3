@@ -4,6 +4,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
@@ -22,11 +25,15 @@ public class Sample {
 			e.printStackTrace();
 		}
 
-		// 하위 타입 반환 능력
+		// 3) 하위 타입 반환 능력
 		childClassReturn();
 
-		// 매개변수에 따른 다른 클래스의 객체 반환
+		// 4) 매개변수에 따른 다른 클래스의 객체 반환
 		anotherClassReturn();
+
+		// 5) 정적 팩터리 메서드를 작성 시점에 클래스 존재 유무
+		driverManager();
+		driverManager2();
 	}
 
 	private static void autoBoxing() {
@@ -104,4 +111,44 @@ public class Sample {
 		EnumSet.of(Style.BOLD, Style.ITALIC).equals(styles);
 		System.out.println(styles);
 	}
+
+	/**
+	 * (1) 서비스 제공자가 구현하는 서비스 인터페이스
+	 * (2) 구현체를 시스템에 등록하여 클라이언트가 쓸 수 있도록 하는 서비스 등록 API
+	 * (3) 클라이언트에게 실제 서비스 구현체를 제공하는 서비스 접근 API
+	 */
+	private static void driverManager() {
+		try {
+			// 서비스 제공자가 구현하는 서비스 인터페이스
+			String driverName = "com.mysql.jdbc.Driver";
+
+			// DrivrManager.registerDriver로 등록
+			Class.forName(driverName);
+
+			String url = "jdbc:mysql://localhost:3306/board";
+			String user = "root";
+			String password = "1234@";
+
+			// 서비스 접근 API
+			Connection conn = DriverManager.getConnection(url, user, password);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void driverManager2() {
+		try {
+			Class.forName("chapter2.item1.MyDriver");
+
+			// 3) 서비스 접근 API
+			Connection conn = DriverManager.getConnection("MyDriver");
+		} catch (ClassNotFoundException e) {
+
+		} catch (SQLException e) {
+		}
+	}
 }
+
+
