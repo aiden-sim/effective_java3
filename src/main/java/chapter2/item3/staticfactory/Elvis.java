@@ -37,6 +37,7 @@ public class Elvis implements Serializable {
         elvis.leaveTheBuilding();
 
         Supplier<Elvis> elvisSupplier = Elvis::getInstance;
+        Elvis elvis2 = elvisSupplier.get();
     }
 }
 
