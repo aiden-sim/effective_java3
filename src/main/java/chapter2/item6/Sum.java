@@ -16,7 +16,7 @@ public class Sum {
             long start = System.nanoTime();
             x += sum();
             long end = System.nanoTime();
-            System.out.println((end - start) / 1_000_000. + " ms.");
+            System.out.println((end - start) / 1000000. + " ms.");
         }
 
         // VM이 최적화하지 못하게 막는 코드

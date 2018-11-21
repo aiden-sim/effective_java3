@@ -32,7 +32,7 @@ public class RomanNumerals {
                 //b = isRomanNumeralFast("MDCCLXXIX");
             }
             long end = System.nanoTime();
-            System.out.println(((end - start) / (1_000. * numReps)) + " μs.");
+            System.out.println(((end - start) / (1000. * numReps)) + " μs.");
         }
 
         // VM이 최적화하지 못하게 막는 코드
