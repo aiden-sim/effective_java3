@@ -16,5 +16,8 @@ public class Reflection {
             constructor.setAccessible(true);
             elvis2 = (Elvis) constructor.newInstance();
         }
+
+        System.out.println(elvis.hashCode());
+        System.out.println(elvis2.hashCode());
     }
 }
