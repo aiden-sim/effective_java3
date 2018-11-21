@@ -93,6 +93,14 @@ public class Sample {
 
 	}
 
+	private static void childClassReturnOldType() {
+		ParentClass boy = ParentClass.create("남자");
+		boy.print();
+
+		ParentClass girl = ParentClass.create("여자");
+		girl.print();
+	}
+
 	private static void childClassReturn() {
 		ParentClass boy = ParentClass.create("남자");
 		boy.print();
@@ -113,24 +121,22 @@ public class Sample {
 	}
 
 	/**
-	 * (1) 서비스 제공자가 구현하는 서비스 인터페이스
-	 * (2) 구현체를 시스템에 등록하여 클라이언트가 쓸 수 있도록 하는 서비스 등록 API
-	 * (3) 클라이언트에게 실제 서비스 구현체를 제공하는 서비스 접근 API
+	 * 서비스 제공자 프레임워크 (기능과 구현을 분리)
 	 */
 	private static void driverManager() {
 		try {
-			// 서비스 제공자가 구현하는 서비스 인터페이스
+			// 1) 서비스 인터페이스 : JDBC 인터페이스 스펙 정의 => 벤더사에서 구현 // 여기서는 Connection
+
+			// 2) 제공자 등록 API : DriverManager.registerDriver 를 통해 등록 ==> Class.forName 내부에서 호출
+
+			// + 4) 서비스 제공자 인터페이스 : 생성하는 팩터리 객체를 설명해 준다.
 			String driverName = "com.mysql.jdbc.Driver";
 
-			// DrivrManager.registerDriver로 등록
+			// 정적 팩터리 메서드
 			Class.forName(driverName);
 
-			String url = "jdbc:mysql://localhost:3306/board";
-			String user = "root";
-			String password = "1234@";
-
-			// 서비스 접근 API
-			Connection conn = DriverManager.getConnection(url, user, password);
+			// 3) 서비스 접근 API
+			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/board", "root", "1234");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
