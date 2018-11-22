@@ -20,7 +20,10 @@ public abstract class Pizza {
     }
 
     // 추상 빌더
+    // 재귀적 한정 바운드
     abstract static class Builder<T extends Builder<T>> {
+        // this: NyPizza with Calzone =>
+
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
 
         public T addTopping(Topping topping) {
