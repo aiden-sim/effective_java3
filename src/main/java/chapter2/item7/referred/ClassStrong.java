@@ -1,4 +1,4 @@
-package chapter2.item8.referred;
+package chapter2.item7.referred;
 
 /*
  * A sample for Detecting and locating memory leaks in Java

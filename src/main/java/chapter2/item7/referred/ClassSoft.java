@@ -1,4 +1,4 @@
-package chapter2.item8.referred;
+package chapter2.item7.referred;
 
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
