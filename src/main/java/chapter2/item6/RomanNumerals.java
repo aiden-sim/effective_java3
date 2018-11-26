@@ -4,6 +4,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by simjunbo on 2018-11-18.
+ * https://regexper.com/#%5E%28%3F%3D.%29M*%28C%5BMD%5D%7CD%3FC%7B0%2C3%7D%29%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%2B%20%22%28X%5BCL%5D%7CL%3FX%7B0%2C3%7D%29%28I%5BXV%5D%7CV%3FI%7B0%2C3%7D%29%24%22
  */
 public class RomanNumerals {
     static boolean isRomanNumeralSlow(String s) {
