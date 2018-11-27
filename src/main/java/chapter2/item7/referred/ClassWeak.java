@@ -10,8 +10,10 @@ import java.lang.ref.WeakReference;
 public class ClassWeak {
 
 	public static class Referred {
+		@Override
 		protected void finalize() {
 			System.out.println("Good bye cruel world");
+			throw new RuntimeException("무시됨");
 		}
 	}
 
@@ -27,15 +29,14 @@ public class ClassWeak {
 
 		// This is now a weak reference.
 		// The object will be collected only if no strong references.
-		Referred strong = new Referred();
-		WeakReference<Referred> weak = new WeakReference<>(strong);
+		WeakReference<Referred> weak = new WeakReference<>(new Referred());
 
 		// Attempt to claim a suggested reference.
 		ClassWeak.collect();
 
 		System.out.println("Removing reference");
 		// The object may be collected.
-		strong = null;
+		// strong = null;
 		ClassWeak.collect();
 
 		System.out.println("Done");
