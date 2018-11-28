@@ -31,7 +31,7 @@ public class ClassStrong {
 
 		System.out.println("Removing reference");
 		// The object may now be collected.
-		strong = null;
+		// strong = null;
 		ClassStrong.collect();
 
 		System.out.println("Done");

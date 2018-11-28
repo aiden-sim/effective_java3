@@ -24,8 +24,10 @@ public class ClassWeakHashMap {
 		// This is now a weak reference.
 		// The object will be collected only if no strong references.
 		Referred strong = new Referred();
+		Referred strong2 = new Referred();
 		Map<Referred, String> metadata = new WeakHashMap<Referred, String>();
 		metadata.put(strong, "WeakHashMap's make my world go around");
+		metadata.put(strong2, "WeakHashMap's make my world go around");
 
 		// Attempt to claim a suggested reference.
 		ClassWeakHashMap.collect();
