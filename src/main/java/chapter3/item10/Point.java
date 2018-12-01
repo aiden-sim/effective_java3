@@ -1,6 +1,8 @@
 package chapter3.item10;
 
 import java.awt.*;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 추이성 테스트
@@ -28,10 +30,15 @@ public class Point {
     // CASE4 (리스코프 치환 법치 위배)
     @Override
     public boolean equals(Object o) {
-        if( o == null || o.getClass() != getClass())
+        if (o == null || o.getClass() != getClass())
             return false;
-        Point p = (Point)o;
+        Point p = (Point) o;
         return p.x == x && p.y == y;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * x + y;
     }
 
     public static void main(String[] args) {
@@ -78,7 +85,7 @@ public class Point {
         */
     }
 }
-
+/*
 class ColorPoint extends Point {
     private final Color color;
 
@@ -87,7 +94,7 @@ class ColorPoint extends Point {
         this.color = color;
     }
 
-    /*
+    *//*
     // CASE1
     // equals를 작성 안하면 Point의 equals를 사용하게 되고 색상정보 (Color)는 무시하게 된다.
     // 하지만 해당 equals는 대칭성 위배가 된다.
@@ -98,7 +105,7 @@ class ColorPoint extends Point {
 
         return super.equals(o) && ((ColorPoint) o).color == color;
     }
-    */
+    *//*
 
     // CASE2
     // 대칭성은 지켜지지만, 추이성이 깨진다.
@@ -113,7 +120,7 @@ class ColorPoint extends Point {
 
         return super.equals(o) && ((ColorPoint) o).color == color;
     }
-}
+}*/
 
 /**
  * CASE3
@@ -137,5 +144,53 @@ class SmellPoint extends Point {
             return o.equals(this);
 
         return super.equals(o) && ((SmellPoint) o).smell == smell;
+    }
+}
+
+class CounterPoint extends Point {
+    private static final AtomicInteger counter = new AtomicInteger();
+
+    public CounterPoint(int x, int y) {
+        super(x, y);
+        counter.incrementAndGet();
+    }
+
+    public static int numberCreated() {
+        return counter.get();
+    }
+}
+
+
+/**
+ * 상속 대신 컴포지션
+ */
+class ColorPoint {
+    private final Point point;
+    private final Color color;
+
+    public ColorPoint(int x, int y, Color color) {
+        point = new Point(x, y);
+        this.color = Objects.requireNonNull(color);
+    }
+
+    /**
+     * 이 ColorPoint의 Point 뷰를 반환한다.
+     */
+    public Point asPoint() {
+        return point;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ColorPoint))
+            return false;
+
+        ColorPoint cp = (ColorPoint) o;
+        return cp.point.equals(point) && cp.color.equals(color);
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * point.hashCode() + color.hashCode();
     }
 }
