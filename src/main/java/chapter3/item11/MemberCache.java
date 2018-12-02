@@ -1,5 +1,10 @@
 package chapter3.item11;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import java.math.BigInteger;
+
 public class MemberCache {
 
     // 캐시
@@ -52,6 +57,10 @@ public class MemberCache {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
+    }
 
     public static void main(String[] args) {
         MemberCache member = new MemberCache("심준보", 33, "심준보");
@@ -69,5 +78,8 @@ public class MemberCache {
         if (member.hashCode() == memebr2.hashCode()) {
             System.out.println("같은 hashcode");
         }
+
+        // toString
+        System.out.println(member);
     }
 }

@@ -12,5 +12,8 @@ public class Sample {
 
         String result = m.get(new PhoneNumber(707, 867, 5309));
         System.out.println("result : " + result);
+
+        // toString
+        System.out.println(new PhoneNumber(707, 867, 530));
     }
 }
