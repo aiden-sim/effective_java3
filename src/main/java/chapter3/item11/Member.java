@@ -23,18 +23,20 @@ public class Member {
         return member.name.equals(name) && member.age == age;
     }
 
+    /*
     @Override
     public int hashCode() {
         int result = ((name == null) ? 0 : name.hashCode()); // 참조 타입 필드라면
         result = 31 * result + Integer.hashCode(age);        // 기본 타입 필드라면 Type.hashCode(f)
         return result;
     }
+    */
 
     // 성능적으로는 더 느리나 간편하다. (배열이 만들어 지고 박싱, 언박싱도 거쳐야 되기 때문)
-/*    @Override
+    @Override
     public int hashCode() {
         return Objects.hash(name, age);
-    }*/
+    }
 
     public static void main(String[] args) {
         Member member = new Member("심준보", 33, "심준보");
