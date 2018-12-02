@@ -1,5 +1,7 @@
 package chapter3.item10;
 
+import java.util.Objects;
+
 public class PhoneNumber {
     private final short areaCode, prefix, lineNum;
 
@@ -28,4 +30,18 @@ public class PhoneNumber {
         return pn.lineNum == lineNum && pn.prefix == prefix
                 && pn.areaCode == areaCode;
     }
+
+    @Override
+    public int hashCode() {
+        int result = Short.hashCode(areaCode);
+        result = 31 * result + Short.hashCode(prefix);
+        result = 31 * result + Short.hashCode(lineNum);
+        return result;
+    }
+
+    // 사용하기 간편하나 성능적으로는 조금더 느리다.
+/*    @Override
+    public int hashCode() {
+        return Objects.hash(lineNum, prefix, areaCode);
+    }*/
 }
