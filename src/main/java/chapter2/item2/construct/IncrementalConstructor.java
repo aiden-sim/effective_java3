@@ -11,7 +11,7 @@ public class IncrementalConstructor {
 
 
     public IncrementalConstructor(String name, Integer age) {
-        this(name, age, null, null);
+        this(name, age, null);
     }
 
     public IncrementalConstructor(String name, Integer age, String tel) {
