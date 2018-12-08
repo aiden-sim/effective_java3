@@ -1,8 +1,5 @@
 package chapter3.item13;
 
-/**
- * clone을 override 하지 않았다.
- */
 public class A implements Cloneable {
     private String name;
     private int age;
@@ -19,10 +16,12 @@ public class A implements Cloneable {
         }
 
         A a = (A) o;
-
         return this.name.equals(a.name) && this.age == a.age;
     }
 
+    // final class 인 경우 new A() 로 선언해도 되지만,
+    // final class가 아닌 경우 하위 클래스에서 이슈가 될 수 있어서 supser.clone() 으로 해야한다.
+    // 하지만 final class에서 super.clone을 호출 하지 않을꺼면 Cloneable을 사용할 필요도 없다.
     @Override
     public Object clone() throws CloneNotSupportedException {
         return super.clone();
@@ -52,6 +51,5 @@ class B extends A {
         if (b2.equals(b)) {
             System.out.println("b2와 b는 같다");
         }
-
     }
 }

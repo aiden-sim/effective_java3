@@ -1,7 +1,5 @@
 package chapter3.item10;
 
-import java.util.Objects;
-
 public class PhoneNumber {
     private final short areaCode, prefix, lineNum;
 
