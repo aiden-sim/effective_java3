@@ -33,8 +33,8 @@ public class Stack implements Cloneable {
     @Override
     public Stack clone() {
         try {
-            Stack result = (Stack)super.clone();
-            result.elements = elements.clone();
+            Stack result = (Stack) super.clone();
+            result.elements = elements.clone(); // elements가 final이라면 할당 자체가 안된다.
             return result;
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
@@ -44,9 +44,5 @@ public class Stack implements Cloneable {
     public static void main(String[] args) {
         Stack a = new Stack();
         Stack b = a.clone();
-
-        a.push("test");
-        b.push("test2");
-        b.push("test3");
     }
 }
