@@ -1,5 +1,8 @@
 package chapter4.item16;
 
+/**
+ * 불변 방식1
+ */
 public final class Complex {
 	public static final Complex ZERO = new Complex(0, 0);
 	public static final Complex ONE = new Complex(1, 0);
