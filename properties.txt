@@ -1,0 +1,4 @@
+#Server Info Chnage
+#Sun Dec 16 22:44:36 KST 2018
+SERVER_IP=127.0.0.2
+SERVER_PORT=6000
