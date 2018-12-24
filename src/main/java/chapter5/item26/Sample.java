@@ -17,6 +17,7 @@ public class Sample {
 
         // wildcard instanceOf
         instanceOf(strings);
+
     }
 
     private static void unsafeAdd(List list, Object o) {
@@ -36,11 +37,11 @@ public class Sample {
     // 예외
     private static void instanceOf(List<String> list) {
         if (list instanceof List<?>) {
-            System.out.println("와일드카드 적용");
+            System.out.println("비한정 와일드카드 적용");
         }
 
         if (list instanceof List) {
-            System.out.println("와일드카드 적용");
+            System.out.println("로 타입 적용");
         }
 
         // 컴파일 에러

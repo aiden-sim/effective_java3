@@ -1,9 +1,12 @@
-package chapter5.item28.array;
+package chapter5.item28.normal;
 
 import java.util.Collection;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ *
+ */
 public class Chooser {
     private final Object[] choiceArray;
 

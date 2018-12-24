@@ -4,19 +4,15 @@ import java.util.Arrays;
 import java.util.EmptyStackException;
 
 /**
- * Object 기반 스택
+ * 제네릭 방법2
  */
-public class Stack<E> {
-    private E[] elements;
+public class Stack2<E> {
+    private Object[] elements;
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
-    /**
-     * private 필드에 저장되어 있고 다른 메서드에 전달되는 일이 전혀 없기 때문에 안전하다.
-     */
-    @SuppressWarnings("unchecked")
-    public Stack() {
-        elements = (E[]) new Object[DEFAULT_INITIAL_CAPACITY];
+    public Stack2() {
+        elements = new Object[DEFAULT_INITIAL_CAPACITY];
     }
 
     public void push(E e) {
@@ -24,10 +20,15 @@ public class Stack<E> {
         elements[size++] = e;
     }
 
+    /**
+     * push에서 E 타입만 허용하기 때문에 이 형변화는 안전하다.
+     */
     public E pop() {
         if (size == 0)
             throw new EmptyStackException();
-        E result = elements[--size];
+
+        @SuppressWarnings("unchecked")
+        E result = (E) elements[--size];
         elements[size] = null;
         return result;
     }
@@ -42,7 +43,7 @@ public class Stack<E> {
     }
 
     public static void main(String[] args) {
-        Stack stack = new Stack();
+        Stack2 stack = new Stack2();
         stack.push("test");
 
 
