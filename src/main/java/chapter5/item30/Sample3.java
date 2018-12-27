@@ -1,15 +1,17 @@
 package chapter5.item30;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ScheduledFuture;
 
 /**
  * 재귀적 타입 한정 사용
  */
 public class Sample3 {
     // 모든 타입 E는 자신과 비교할 수 있다.
-    public static <E extends Comparable<E>> E max(Collection<E> c) throws IllegalAccessException {
+    public static <E extends Comparable<? super E>> E max(Collection<E> c) throws IllegalAccessException {
         if (c.isEmpty()) {
             throw new IllegalAccessException("컬렉션이 비어 있습니다.");
         }
@@ -29,5 +31,9 @@ public class Sample3 {
 
         List<String> list2 = List.of("가", "나", "다", "라");
         System.out.println(max(list2));
+
+        List<ScheduledFuture<?>> scheduledFutures = new ArrayList<>();
+        max(scheduledFutures);
+
     }
 }
