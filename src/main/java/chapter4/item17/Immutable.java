@@ -1,4 +1,4 @@
-package chapter4.item16;
+package chapter4.item17;
 
 public final class Immutable implements Cloneable {
 	private final int id;

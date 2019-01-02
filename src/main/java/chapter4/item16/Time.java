@@ -1,4 +1,4 @@
-package chapter4.item15;
+package chapter4.item16;
 
 // 불변 필드를 노출한 pulbic 클래스 - 과연 좋은가?
 public final class Time {

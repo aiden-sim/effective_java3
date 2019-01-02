@@ -1,4 +1,4 @@
-package chapter4.item16;
+package chapter4.item17;
 
 /**
  * 불변 방식1

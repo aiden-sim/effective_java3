@@ -1,4 +1,4 @@
-package chapter4.item16;
+package chapter4.item17;
 
 public class Sample {
 	public static void main(String[] args) throws CloneNotSupportedException {
