@@ -1,4 +1,4 @@
-package chapter6.item35;
+package chapter6.item35.before;
 
 /**
  * ordinal을 잘못 사용한 예
@@ -11,6 +11,6 @@ public enum Ensemble {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(Ensemble.SOLO.numberOfMusicians());
+		System.out.println(Ensemble.QUINTET.numberOfMusicians());
 	}
 }
