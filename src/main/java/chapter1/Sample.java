@@ -9,7 +9,7 @@ public class Sample {
     static int cv = 10; // 클래수 변수 (전역 변수)
 
     // 2) 지역변수
-    public void sample() {
+    private void sample() {
         int lv = 10;
     }
 
