@@ -55,7 +55,7 @@ public class Sample {
 
 		// orElseGet
 		String object = max3(words).orElseGet(String::new);
-		
+
 	}
 
 }
