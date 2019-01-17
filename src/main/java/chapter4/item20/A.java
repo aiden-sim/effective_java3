@@ -36,10 +36,3 @@ class B implements A {
 		b.execute();
 	}
 }
-
-abstract class C implements A {
-	@Override final public void execute() {
-		phase1();
-		phase2();
-	}
-}
