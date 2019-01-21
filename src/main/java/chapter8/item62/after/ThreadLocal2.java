@@ -1,26 +1,19 @@
 package chapter8.item62.after;
 
 /**
- * Key 클래스로 권한 부여
+ * 리팩터링하여 Key를 ThreadLocal로 변경
+ * 매개변수화하여 타입안전성 확보
  */
-public class ThreadLocal {
-	private ThreadLocal() {
-	}
-
-	public static class Key {
+public final class ThreadLocal2<T> { // 권한
+	public ThreadLocal2() {
 
 	}
 
-	// 위조 불가능한 고유 키를 생성
-	public static Key getKey() {
-		return new Key();
-	}
-
-	public static void set(Key key, Object value) {
+	public void set(T value) {
 
 	}
 
-	public static Object get(Key key) {
+	public T get() {
 		return null;
 	}
 }

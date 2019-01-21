@@ -1,4 +1,4 @@
-package chapter8.item62;
+package chapter8.item62.before;
 
 /**
  * 잘못된 예 - 문자열을 사용해 권한을 구분하였다.
