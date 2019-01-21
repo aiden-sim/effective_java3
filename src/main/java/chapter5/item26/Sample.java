@@ -1,8 +1,6 @@
 package chapter5.item26;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Sample {
     public static void main(String[] args) {
@@ -12,12 +10,20 @@ public class Sample {
         //System.out.println(s);
 
 
+        // 이거는 허용 안함
         List<?> list = new ArrayList<>();
         // list.add("verboten");
 
+        // 이건 허용 함
+        List<?> list2 = new ArrayList<String>();
+
+        // 이거는 허용함
+        List<Object> list3 = new ArrayList<>();
+        list3.add("test");
+        list3.add(10);
+
         // wildcard instanceOf
         instanceOf(strings);
-
     }
 
     private static void unsafeAdd(List list, Object o) {
