@@ -1,4 +1,4 @@
-package chapter8.item61;
+package chapter9.item61;
 
 public class Unbelievable {
     static Integer i;

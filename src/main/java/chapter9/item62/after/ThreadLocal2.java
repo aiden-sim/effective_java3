@@ -1,4 +1,4 @@
-package chapter8.item62.after;
+package chapter9.item62.after;
 
 /**
  * 리팩터링하여 Key를 ThreadLocal로 변경

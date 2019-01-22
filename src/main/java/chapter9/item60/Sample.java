@@ -1,6 +1,4 @@
-package chapter8.item60;
-
-import java.math.BigDecimal;
+package chapter9.item60;
 
 public class Sample {
     public static void main(String[] args) {
