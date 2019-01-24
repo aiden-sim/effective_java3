@@ -1,4 +1,4 @@
-package generic;
+package chapter5.generic;
 
 import java.util.List;
 

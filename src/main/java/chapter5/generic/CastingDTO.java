@@ -1,4 +1,4 @@
-package generic;
+package chapter5.generic;
 
 public class CastingDTO {
 	private Object object;

@@ -1,4 +1,4 @@
-package generic;
+package chapter5.generic;
 
 public class CarWildcardSample {
 	public static void main(String[] ar) {

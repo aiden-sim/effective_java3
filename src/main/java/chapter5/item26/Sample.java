@@ -5,6 +5,7 @@ import java.util.*;
 public class Sample {
 	public static void main(String[] args) {
 		List<String> strings = new ArrayList<>();
+		strings.add("test");
 		unsafeAdd(strings, Integer.valueOf(42));
 		//String s = strings.get(0); // ClassCastException
 		//System.out.println(s);

@@ -1,4 +1,4 @@
-package generic;
+package chapter5.generic;
 
 public class GenericSample2 {
 	public static void main(String[] ar) {

@@ -1,4 +1,4 @@
-package generic;
+package chapter5.generic;
 
 public class Bus extends Car {
 	public Bus(String name) {

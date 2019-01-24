@@ -2,7 +2,6 @@ package chapter5.item26;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Object vs Wildcard vs GenericMethod
@@ -15,6 +14,11 @@ public class Sample2 {
 		//addObjectToList2(testList, s); // List<Object>가 List<String>의 슈퍼 타입이 아니기 때문에 (무변성) 적용 불가
 		addObjectToList3(testList, s);   // 정상
 		addObjectToList4(testList, s);
+
+		// 하지만 super는 가능
+		List<? super Number> l = new ArrayList<>();
+		l.add(Integer.valueOf(3));  //OK
+		l.add(Double.valueOf(3.3)); //OK
 	}
 
 	/**
