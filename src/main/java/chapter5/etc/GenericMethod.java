@@ -3,6 +3,9 @@ package chapter5.etc;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 제네릭 메서드 테스트
+ */
 public class GenericMethod<T> {
 	T t;
 
@@ -32,7 +35,7 @@ public class GenericMethod<T> {
 	}
 
 	public static void main(String[] args) {
-		A<String> a = new A<>();
+		GenericMethod<String> a = new GenericMethod<>();
 		a.set("print");
 		System.out.println(a.get());
 
