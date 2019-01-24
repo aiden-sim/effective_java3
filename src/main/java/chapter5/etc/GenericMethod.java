@@ -20,6 +20,12 @@ public class GenericMethod<T> {
 		return list;
 	}
 
+	public List<T> print2(T t) {
+		List<T> list = new ArrayList<>();
+		list.add(t);
+		return list;
+	}
+
 	public <U> List<U> print(U u) {
 		List<U> list = new ArrayList<>();
 		return list;
@@ -27,8 +33,10 @@ public class GenericMethod<T> {
 
 	public static void main(String[] args) {
 		A<String> a = new A<>();
-		a.set("test");
+		a.set("print");
 		System.out.println(a.get());
+
+		GenericMethod.<String>getList("print2");
 	}
 
 }
