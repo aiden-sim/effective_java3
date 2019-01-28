@@ -66,7 +66,5 @@ public class Pecs {
 		a2.add(new A());
 		a2.add(new B());
 		a2.add(new C());
-
-
 	}
 }
