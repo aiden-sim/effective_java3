@@ -1,6 +1,8 @@
 package chapter5.item31;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
 
 public class Sample {
     public static <E> void swap(List<E> list, int i, int j) {
@@ -20,7 +22,42 @@ public class Sample {
         list.set(i, list.set(j, list.get(i)));
     }
 
-    public static void main(String[] args) {
+    public static <E extends Comparable<? super E>> E max(List<? extends E> list) {
+        return list.stream().findAny().get();
+    }
 
+    public static void main(String[] args) {
+        List<ScheduledFuture<?>> scheduledFutures = new ArrayList<>();
+        scheduledFutures.add(new ScheduledFuture<String>() {
+            @Override public boolean cancel(boolean mayInterruptIfRunning) {
+                return false;
+            }
+
+            @Override public boolean isCancelled() {
+                return false;
+            }
+
+            @Override public boolean isDone() {
+                return false;
+            }
+
+            @Override public String get() throws InterruptedException, ExecutionException {
+                return null;
+            }
+
+            @Override public String get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
+                return null;
+            }
+
+            @Override public int compareTo(Delayed o) {
+                return 0;
+            }
+
+            @Override public long getDelay(TimeUnit unit) {
+                return 10;
+            }
+        });
+
+        ScheduledFuture<?> result = max(scheduledFutures);
     }
 }
