@@ -1,4 +1,4 @@
-package chapter10.item79.copyonwritearraylist;
+package chapter11.item79.copyonwritearraylist;
 
 
 @FunctionalInterface

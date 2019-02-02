@@ -1,4 +1,4 @@
-package chapter10.item79.before;
+package chapter11.item79.before;
 
 @FunctionalInterface
 public interface SetObserver<E> {

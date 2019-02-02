@@ -1,6 +1,5 @@
-package chapter10.item81;
+package chapter11.item81;
 
-import java.util.Random;
 import java.util.concurrent.*;
 
 public class Sample {

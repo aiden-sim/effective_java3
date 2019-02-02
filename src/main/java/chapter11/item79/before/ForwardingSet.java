@@ -1,4 +1,4 @@
-package chapter10.item79.before;
+package chapter11.item79.before;
 
 import java.util.Collection;
 import java.util.Iterator;

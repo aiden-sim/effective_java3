@@ -1,13 +1,6 @@
-package chapter10.item79.copyonwritearraylist;
+package chapter11.item79.before;
 
-import chapter10.item79.before.ForwardingSet;
-import chapter10.item79.copyonwritearraylist.SetObserver;
-
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -17,21 +10,37 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 		super(s);
 	}
 
-	private final List<SetObserver<E>> observers = new CopyOnWriteArrayList<>();
+	private final List<SetObserver<E>> observers = new ArrayList<>();
 
 	public void addObserver(SetObserver<E> observer) {
-		observers.add(observer);
+		synchronized (observers) {
+			observers.add(observer);
+		}
 	}
 
 	public boolean removeObsevrer(SetObserver<E> observer) {
-		return observers.remove(observer);
+		synchronized (observers) {
+			return observers.removeAll(observers);
+		}
 	}
+
+	/*
+	private void notifyElementAdded(E element) {
+		synchronized (observers) {
+			for (SetObserver<E> observer : observers) {
+				observer.added(this, element);
+			}
+		}
+	}*/
 
 	// 외계인 메서드를 동기화 블록 바끝으로 옮김
 	private void notifyElementAdded(E element) {
-		for (SetObserver<E> observer : observers) {
-			observer.added(this, element);
+		List<SetObserver<E>> snapshot = null;
+		synchronized (observers) {
+			snapshot = new ArrayList<>(observers);
 		}
+		for (SetObserver<E> observer : snapshot)
+			observer.added(this, element);
 	}
 
 	@Override
@@ -55,7 +64,7 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 	public static void main(String[] args) {
 		ObservableSet<Integer> set = new ObservableSet<>(new HashSet<>());
 		// 옵저버 등록
-		//set.addObserver((s, e) -> System.out.println(e)); // 그냥 선언
+		// set.addObserver((s, e) -> System.out.println(e)); // 그냥 선언
 		/*
 		set.addObserver(new SetObserver<Integer>() {
 			@Override public void added(ObservableSet<Integer> s, Integer e) {  // 람다는 this를 넘기지 못하기 때문에 익명 클래스를 사용했다.

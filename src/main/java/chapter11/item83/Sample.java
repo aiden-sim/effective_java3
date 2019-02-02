@@ -1,4 +1,4 @@
-package chapter10.item83;
+package chapter11.item83;
 
 public class Sample {
     // 인스턴스 필드를 초기화하는 일반적인 방법
