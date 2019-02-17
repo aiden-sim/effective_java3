@@ -30,7 +30,8 @@ public class Plant {
                 new Plant("로즈마리", LifeCycle.PERENNIAL)
         };
 
-        // 코드 37-1 ordinal()을 배열 인덱스로 사용 - 따라 하지 말 것!
+        // 1) 코드 37-1 ordinal()을 배열 인덱스로 사용 - 따라 하지 말 것!
+        @SuppressWarnings("unchecked")
         Set<Plant>[] plantsByLifeCycleArr =
                 (Set<Plant>[]) new Set[Plant.LifeCycle.values().length];
         for (int i = 0; i < plantsByLifeCycleArr.length; i++) {
@@ -47,9 +48,10 @@ public class Plant {
                     Plant.LifeCycle.values()[i], plantsByLifeCycleArr[i]);
         }
 
-        // EnumMap을 사용해 데이터와 열거 타입을 매핑한다.
+        // 2) EnumMap을 사용해 데이터와 열거 타입을 매핑한다.
         Map<LifeCycle, Set<Plant>> plantsByLifeCycle = new EnumMap<>(Plant.LifeCycle.class);
 
+        // 초기화
         for (Plant.LifeCycle lc : Plant.LifeCycle.values()) {
             plantsByLifeCycle.put(lc, new HashSet<>());
         }
@@ -60,7 +62,7 @@ public class Plant {
         System.out.println(plantsByLifeCycle);
 
 
-        // 스트림을 사용한 코드 (EnumMap을 사용하지 않는다.)
+        // 3) 스트림을 사용한 코드 (EnumMap을 사용하지 않는다.)
         System.out.println(Arrays.stream(garden)
                 .collect(Collectors.groupingBy(p -> p.lifeCycle)));
 
@@ -68,7 +70,7 @@ public class Plant {
                 .collect(Collectors.groupingBy(p -> p.lifeCycle));
 
 
-        // 스트림을 사용한 코드 (EnumMap을 사용한다.)
+        // 4) 스트림을 사용한 코드 (EnumMap을 사용한다.)
         System.out.println(Arrays.stream(garden)
                 .collect(Collectors.groupingBy(p -> p.lifeCycle,
                         () -> new EnumMap<>(LifeCycle.class), Collectors.toSet())));

@@ -9,12 +9,13 @@ import static java.util.stream.Collectors.*;
  * EnumMap으로 데이터와 열거 타입 쌍을 연결했다.
  */
 public enum Phase {
-    SOLID, LIQUID, GAS;
+    SOLID, LIQUID, GAS, PLASMA;
 
     public enum Transition {
         MELT(SOLID, LIQUID), FREEZE(LIQUID, SOLID),
         BOIL(LIQUID, GAS), CONDENSE(GAS, LIQUID),
-        SUBLIME(SOLID, GAS), DEPOSIT(GAS, SOLID);
+        SUBLIME(SOLID, GAS), DEPOSIT(GAS, SOLID),
+        IONIZE(GAS, PLASMA), DEIONIZE(PLASMA, GAS);
 
         private final Phase from;
         private final Phase to;
