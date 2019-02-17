@@ -12,8 +12,7 @@ public class Text {
 
     public static void main(String[] args) {
         Text text = new Text();
-        int result = STYLE_BOLD | STYLE_ITALIC | STYLE_UNDERLINE | STYLE_STRIKETHROUGH;
-        text.applyStyles(result);
+        text.applyStyles(STYLE_BOLD | STYLE_ITALIC);
     }
 }
 
