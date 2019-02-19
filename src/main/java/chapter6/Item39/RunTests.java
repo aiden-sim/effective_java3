@@ -5,6 +5,7 @@ import java.lang.reflect.Method;
 
 public class RunTests {
     public static void main(String[] args) throws Exception {
+        // 마커 애너테이션 이용 예
         int tests = 0;
         int passed = 0;
         Class<?> testClass = Class.forName("chapter6.Item39.Sample");
@@ -25,6 +26,8 @@ public class RunTests {
         }
         System.out.printf("성공: %d, 실패: %d%n", passed, tests - passed);
 
+
+        //
         tests = 0;
         passed = 0;
         testClass = Class.forName("chapter6.Item39.Sample2");

@@ -24,7 +24,7 @@ public class Sample {
     public static void m4() {
     }
 
-    // 잘못 사용한 예 : 정적 메서드가 아니다.
+    // 잘못 사용한 예 : 정적 메서드가 아니다. (invoke 시, 객체가 없기 떄문에 실패 한다)
     @Test
     public void m5() {
     }
