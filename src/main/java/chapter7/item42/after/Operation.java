@@ -6,26 +6,11 @@ import java.util.function.DoubleBinaryOperator;
  * 함수 객체(람다)를 인스턴스 필드에 저장해 상수별 동작을 구현한 열거 타입
  */
 public enum Operation {
-    PLUS("+", (x, y) -> x + y) {
-        public double apply(double x, double y) {
-            return x + y;
-        }
-    },
-    MINUS("-", (x, y) -> x - y) {
-        public double apply(double x, double y) {
-            return x - y;
-        }
-    },
-    TIMES("*", (x, y) -> x * y) {
-        public double apply(double x, double y) {
-            return x * y;
-        }
-    },
-    DIVIDE("/", (x, y) -> x / y) {
-        public double apply(double x, double y) {
-            return x / y;
-        }
-    };
+    PLUS("+", (x, y) -> x + y),
+    MINUS("-", (x, y) -> x - y),
+    TIMES("*", (x, y) -> x * y),
+    DIVIDE("/", (x, y) -> x / y);
+
     private final String symbol;
     private final DoubleBinaryOperator op;
 
@@ -34,10 +19,12 @@ public enum Operation {
         this.op = op;
     }
 
-    public abstract double apply(double x, double y);
-
     @Override
     public String toString() {
         return symbol;
+    }
+
+    public double apply(double x, double y) {
+        return op.applyAsDouble(x, y);
     }
 }
