@@ -17,6 +17,5 @@ public class BoundType {
 		// Using a method reference (bound type)
 		Function<Integer, Integer> operator2 = cal::cubic;
 		System.out.println(operator2.apply(6));
-
 	}
 }

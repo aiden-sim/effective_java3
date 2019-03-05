@@ -9,12 +9,11 @@ public class StaticType {
 	}
 
 	public static void main(String[] args) {
-		Function<Integer, Integer> operator = (a) -> cubic(a);
+		Function<Integer, Integer> operator = (a) -> StaticType.cubic(a);
 		System.out.println(operator.apply(2));
 
 		// Using a method reference (bound type)
 		Function<Integer, Integer> operator2 = StaticType::cubic;
 		System.out.println(operator2.apply(3));
-
 	}
 }
