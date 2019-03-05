@@ -11,12 +11,12 @@ public class BoundType {
 	public static void main(String[] args) {
 		BoundType cal = new BoundType();
 		// Using a lambda expression
-		Function<Integer, Integer> operator3 = (a) -> cal.cubic(a);
-		System.out.println(operator3.apply(6));
+		Function<Integer, Integer> operator = (a) -> cal.cubic(a);
+		System.out.println(operator.apply(6));
 
 		// Using a method reference (bound type)
-		Function<Integer, Integer> operator4 = cal::cubic;
-		System.out.println(operator4.apply(6));
+		Function<Integer, Integer> operator2 = cal::cubic;
+		System.out.println(operator2.apply(6));
 
 	}
 }
