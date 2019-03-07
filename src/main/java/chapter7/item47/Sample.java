@@ -1,7 +1,5 @@
 package chapter7.item47;
 
-import java.util.List;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
