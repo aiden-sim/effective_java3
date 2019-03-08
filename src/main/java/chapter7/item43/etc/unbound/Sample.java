@@ -2,6 +2,8 @@ package chapter7.item43.etc.unbound;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.Function;
 
 public class Sample {
@@ -17,6 +19,8 @@ public class Sample {
 				.findAny().get();
 
 		System.out.println(name);
+
+		ExecutorService exec = Executors.newSingleThreadExecutor();
 	}
 
 	private static class Child {
