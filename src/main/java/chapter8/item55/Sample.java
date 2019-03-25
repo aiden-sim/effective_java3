@@ -53,7 +53,7 @@ public class Sample {
 		// 항상 값이 채워져 있다고 가정
 		String lastNobleGas = max3(words).get();
 
-		// orElseGet
+		// orElseGet (값이 처음 필요할 때 생성하므로 초기 비용을 낮출 수 있다.)
 		String object = max3(words).orElseGet(String::new);
 
 	}
