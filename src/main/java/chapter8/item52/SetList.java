@@ -6,21 +6,21 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class SetList {
-    public static void main(String[] args) {
-        Set<Integer> set = new TreeSet<>();
-        List<Integer> list = new ArrayList<>();
+	public static void main(String[] args) {
+		Set<Integer> set = new TreeSet<>();
+		List<Integer> list = new ArrayList<>();
 
-        for (int i = -3; i < 3; i++) {
-            set.add(i);
-            list.add(i);
-        }
+		for (int i = -3; i < 3; i++) {
+			set.add(i);
+			list.add(i);
+		}
 
-        for (int i = 0; i < 3; i++) {
-            set.remove(i);
-            //list.remove(i); // remove(int index); 가 호출이 된다.
-            list.remove(Integer.valueOf(i));
-        }
+		for (int i = 0; i < 3; i++) {
+			set.remove(i);
+			//list.remove(i); // remove(int index); 가 호출이 된다.
+			list.remove(Integer.valueOf(i));
+		}
 
-        System.out.println(set + " " + list);
-    }
+		System.out.println(set + " " + list);
+	}
 }

@@ -2,6 +2,7 @@ package chapter8.item53;
 
 public class Sample {
 	public static void main(String[] args) {
+		System.out.println(sum());
 		System.out.println(sum(1, 2, 3));
 	}
 
