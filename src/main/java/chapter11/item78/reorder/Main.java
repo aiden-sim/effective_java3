@@ -23,20 +23,22 @@ class Something {
 
 public class Main {
     public static void main(String[] args) {
-        final Something obj = new Something();
+        while (true) {
+            final Something obj = new Something();
 
-        // 쓰기 쓰레드 A
-        new Thread() {
-            public void run() {
-                obj.write();
-            }
-        }.start();
+            // 쓰기 쓰레드 A
+            new Thread() {
+                public void run() {
+                    obj.write();
+                }
+            }.start();
 
-        // 읽기 쓰레드 B
-        new Thread() {
-            public void run() {
-                obj.read();
-            }
-        }.start();
+            // 읽기 쓰레드 B
+            new Thread() {
+                public void run() {
+                    obj.read();
+                }
+            }.start();
+        }
     }
 }
