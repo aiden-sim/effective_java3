@@ -1,5 +1,4 @@
-package chapter11.item79.copyonwritearraylist;
-
+package chapter11.item79.step4;
 
 @FunctionalInterface
 public interface SetObserver<E> {
