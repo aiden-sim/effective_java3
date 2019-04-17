@@ -4,9 +4,6 @@ import chapter11.item79.ForwardingSet;
 
 import java.util.*;
 
-/**
- * 외계인 메소드
- */
 public class ObservableSet<E> extends ForwardingSet<E> {
 	public ObservableSet(Set<E> s) {
 		super(s);
@@ -22,13 +19,16 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 
 	public boolean removeObserver(SetObserver<E> observer) {
 		synchronized (observers) {
-			return observers.removeAll(observers);
+			return observers.remove(observer);
 		}
 	}
 
 	private void notifyElementAdded(E element) {
 		synchronized (observers) {
 			for (SetObserver<E> observer : observers) {
+				/**
+				 * 외계인 메소드
+				 */
 				observer.added(this, element);
 			}
 		}
