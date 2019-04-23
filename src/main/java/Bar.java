@@ -1,3 +1,5 @@
+import net.jcip.annotations.Immutable;
+
 /**
  * C:\dev\EffectiveJava3\src\main\java>"C:\Program Files\Java\jdk1.8.0_20\bin\javac" -d . Foo.java
  *

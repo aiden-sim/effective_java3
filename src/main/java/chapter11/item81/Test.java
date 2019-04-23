@@ -1,8 +1,11 @@
 package chapter11.item81;
 
+import net.jcip.annotations.Immutable;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executor;
 
+@Immutable
 public class Test {
 	public static long time(Executor executor, int concurrency, Runnable action) throws InterruptedException {
 		CountDownLatch ready = new CountDownLatch(concurrency);
