@@ -1,4 +1,4 @@
-package chapter11.item81;
+package chapter11.item81.concurrent;
 
 import java.util.Collections;
 import java.util.HashMap;
