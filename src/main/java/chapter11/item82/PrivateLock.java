@@ -4,9 +4,9 @@ public class PrivateLock {
 
 	private final Object lock = new Object();
 
-	public void fooe() {
+	public void foo() {
 		synchronized (lock) {
-			
+
 		}
 	}
 }
