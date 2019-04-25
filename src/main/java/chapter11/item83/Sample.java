@@ -1,10 +1,14 @@
 package chapter11.item83;
 
 public class Sample {
-    // 인스턴스 필드를 초기화하는 일반적인 방법
+    // 1) 인스턴스 필드를 초기화하는 일반적인 방법
     private final FieldType field = computeFieldValue();
 
-    // 지연 초기화
+    FieldType computeFieldValue() {
+        return new FieldType();
+    }
+
+    // 2) 지연 초기화
     private FieldType field2;
 
     private synchronized FieldType getField() {
@@ -15,11 +19,8 @@ public class Sample {
         return field2;
     }
 
-    FieldType computeFieldValue() {
-        return new FieldType();
-    }
 
-    // 정적 필드용 지연 초기화 홀더 클래스 관용구
+    // 3) 정적 필드용 지연 초기화 홀더 클래스 관용구
     private static class FieldHolder {
         static final FieldType field = computeFieldValue2();
     }
@@ -47,6 +48,15 @@ public class Sample {
             }
             return field3;
         }
+    }
+
+    // 단일검사 관용구 (이중검사 변종)
+    private FieldType getField4() {
+        FieldType result = field3;
+        if(result == null) { // 여기서 체크할 수 있으니까 result를 넣은건가?
+            field3 = result = computeFieldValue();
+        }
+        return result;
     }
 }
 
