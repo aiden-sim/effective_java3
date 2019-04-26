@@ -14,6 +14,7 @@ class Point {
 		return "[" + x + "," + y + "]";
 	}
 
+	// 처음 사용하는 시점에 초기화한다.
 	public final synchronized String toString() {
 		if (name == null) {
 			name = makeName();

@@ -28,7 +28,7 @@ public class ColorPoint extends Point {
 	}
 
 	protected String makeName() {
-		return super.makeName() + ":" + color;
+		return super.makeName() + ":" + color;  // final 이지만 초기화 되기전에 오버라이딩 호출이 되서 null이 된다.
 	}
 
 	public static void main(String[] args) {
