@@ -37,7 +37,7 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 		synchronized (observers) {
 			snapshot = new ArrayList<>(observers);
 		}
-		for (SetObserver<E> observer : snapshot) {
+		for (SetObserver<E> observer : snapshot) { // snapshot을 사용하기 때문에 lock 없음 (open call)
 			observer.added(this, element);
 		}
 	}

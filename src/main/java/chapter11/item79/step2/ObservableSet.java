@@ -19,12 +19,16 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 
 	public boolean removeObserver(SetObserver<E> observer) {
 		synchronized (observers) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			return observers.remove(observer);
 		}
 	}
 
 	private void notifyElementAdded(E element) {
-		List<SetObserver<E>> snapshot = new ArrayList<>(observers);
 		synchronized (observers) {
 			for (SetObserver<E> observer : observers) {
 				/**
