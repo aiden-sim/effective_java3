@@ -8,7 +8,7 @@ class Something {
     private int x = 0;
     private int y = 0;
 
-    // 둘의 의존관계가 없기 때문에 컴파일러가 대입 순서를 바꾸어버릴 가능성이 있다. (reorder 때문에)
+    // 컴파일러나 가상머신이 대입 순서를 바꾸어버릴 가능성이 있다. (reorder 때문에)
     public void write() {
         x = 100;
         y = 50;

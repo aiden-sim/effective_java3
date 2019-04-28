@@ -2,6 +2,8 @@ package chapter11.item78.after;
 
 import net.jcip.annotations.Immutable;
 
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -13,9 +15,13 @@ public class StopThread2 {
     public static void main(String[] args) throws InterruptedException {
         Thread backgroundThread = new Thread(() -> {
             int i = 0;
+            long startTime = System.currentTimeMillis();
             while (!stopRequested) {
                 i++;
             }
+            long endTime = System.currentTimeMillis();
+            long measuredTime = endTime - startTime;
+            System.out.println(measuredTime);
         });
         backgroundThread.start();
 
