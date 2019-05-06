@@ -8,7 +8,6 @@ public class ExchangerExample {
 
 		Worker worker1 = new Worker(exchanger, "AAA");
 		Worker worker2 = new Worker(exchanger, "BBB");
-
 		new Thread(worker1).start();
 		new Thread(worker2).start();
 	}
