@@ -29,18 +29,17 @@ public class Main {
 }
 
 class FooDoer {
-    /*
     synchronized void foo() {
         System.out.println("test");
-    }*/
+    }
 
     // removed! using synchronized methods instead
 
-    private final Object lock = new Object();
+/*    private final Object lock = new Object();
 
     void foo() {
         synchronized (lock) {
             System.out.println("test");
         }
-    }
+    }*/
 }
